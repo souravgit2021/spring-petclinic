@@ -29,6 +29,7 @@ jobs:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           run: |
             mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-              -Dsonar.organization="gh-action-hprofile" \
-              -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
-              -Dsonar.token="${{ secrets.SONAR_TOKEN }}"
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.organization=gh-action-hprofile \
+              -Dsonar.projectKey=gh-action-spc \
+              -Dsonar.token=${{ secrets.SONAR_TOKEN }}
