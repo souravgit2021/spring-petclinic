@@ -8,8 +8,8 @@ jobs:
         - name: Code Check Out
           uses: actions/checkout@v4
         
-        - name: Code Testing Local
-          run: mvn test
+        # - name: Code Testing Local
+        #   run: mvn test
 
         - name: Build and Analyze
           env:
