@@ -14,4 +14,8 @@ jobs:
         - name: Build and Analyze
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+            SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+                    -Dsonar.organization="${{ secrets.SONAR_ORGANIZATION }}" \
+                    -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+                    -Dsonar.token="${{ secrets.SONAR_TOKEN }}"
